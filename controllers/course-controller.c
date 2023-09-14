@@ -15,7 +15,7 @@ void controller_router(){
 
     switch (option) {
         case 0:
-            show_menu();
+            app_router();
             break;
         default:
             show_invalid_option_message();

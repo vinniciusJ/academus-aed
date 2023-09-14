@@ -7,6 +7,6 @@
 
 void show_menu();
 void choose_option();
-void startup();
+void app_router();
 
 #endif //ACADEMUS_APP_H

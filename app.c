@@ -20,12 +20,13 @@ void show_menu(){
     printf("|[4] - Ir para a seção de módulos                                |\n");
     printf("|[5] - Importar dados em lote                                    |\n");
     printf("+----------------------------------------------------------------+\n");
-
-    choose_option();
 }
 
-void choose_option(){
-    int option = input_option();
+void app_router(){
+    int option = 0;
+
+    show_menu();
+    option = input_option();
 
     switch (option) {
         case 0:
@@ -44,12 +45,8 @@ void choose_option(){
             break;
         default:
             show_invalid_option_message();
-            show_menu();
+            app_router();
     }
 
-    show_menu();
-}
-
-void startup(){
-    show_menu();
+    app_router();
 }
