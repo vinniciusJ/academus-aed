@@ -12,4 +12,9 @@ typedef struct {
     int academic_year;
 } Module;
 
+typedef struct {
+    Module item;
+    int next;
+} ModuleList;
+
 #endif //ACADEMUS_MODULE_H

@@ -13,4 +13,9 @@ typedef struct {
     int year;
 } Subject;
 
+typedef struct {
+    Subject item;
+    int next;
+} SubjectList;
+
 #endif //ACADEMUS_MODULES_H

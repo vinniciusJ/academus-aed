@@ -27,4 +27,7 @@ add_executable(academus main.c
         controllers/headers/module-controller.h
         views/headers/module-view.h
         views/module-view.c
-        controllers/module-controller.c)
+        controllers/module-controller.c
+        utils/headers/file.h
+        utils/file.c
+        models/header.h)

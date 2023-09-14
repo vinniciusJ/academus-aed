@@ -11,4 +11,9 @@ typedef struct {
     char name[NAME_LENGTH];
 } Professor;
 
+typedef struct {
+    Professor item;
+    int next;
+} ProfessorList;
+
 #endif //ACADEMUS_PROFESSOR_H

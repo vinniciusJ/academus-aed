@@ -13,4 +13,9 @@ typedef struct {
     char area; // E (Exatas) | H (Humanas) | B (Biológicas)
 } Course;
 
+typedef struct {
+    Course item;
+    int next;
+} CourseList;
+
 #endif //ACADEMUS_COURSE_H
