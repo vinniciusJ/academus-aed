@@ -30,4 +30,10 @@ add_executable(academus main.c
         controllers/module-controller.c
         utils/headers/file.h
         utils/file.c
-        models/header.h)
+        models/header.h
+        utils/header.c
+        utils/headers/header.h
+        utils/headers/utils.h
+        utils/utils.c
+        utils/headers/list.h
+        utils/list.c)
