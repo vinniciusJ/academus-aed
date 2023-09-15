@@ -5,6 +5,9 @@
 #ifndef ACADEMUS_SUBJECT_CONTROLLER_H
 #define ACADEMUS_SUBJECT_CONTROLLER_H
 
-void subject_router();
+// Inicia a navegação na seção de disciplina
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_subject_router();
 
 #endif //ACADEMUS_SUBJECT_CONTROLLER_H

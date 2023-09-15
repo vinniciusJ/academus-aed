@@ -8,7 +8,10 @@
 #include "../utils/headers/views.h"
 #include "../app.h"
 
-void subject_router(){
+// Inicia a navegação na seção de disciplina
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_subject_router(){
     int option = 0;
 
     show_subject_menu();
@@ -16,12 +19,12 @@ void subject_router(){
 
     switch (option) {
         case 0:
-            app_router();
+            start_app_router();
             break;
         default:
             show_invalid_option_message();
-            subject_router();
+            start_subject_router();
     }
 
-    subject_router();
+    start_subject_router();
 }

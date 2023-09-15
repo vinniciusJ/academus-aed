@@ -6,7 +6,9 @@
 #include "../utils/headers/views.h"
 #include "../app.h"
 
-void professor_router(){
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_professor_router(){
     int option = 0;
 
     show_professor_menu();
@@ -14,12 +16,12 @@ void professor_router(){
 
     switch (option) {
         case 0:
-            app_router();
+            start_app_router();
             break;
         default:
             show_invalid_option_message();
-            professor_router();
+            start_professor_router();
     }
 
-    professor_router();
+    start_professor_router();
 }

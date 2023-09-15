@@ -1,7 +1,7 @@
 #include "app.h"
 
 int main() {
-    app_router();
+    start_app_router();
 
     return 0;
 }

@@ -5,6 +5,9 @@
 
 #include "headers/course-view.h"
 
+// Imprime o menu de opções da seção de cursos
+// Pré-condição: nenhuma
+// Pós-condição: o menu de opções da seção é impresso no terminal
 void show_course_menu(){
     printf("+------------------------SISTEMA ACADEMUS------------------------+\n");
     printf("|------------------------Seção de cursos-------------------------|\n");

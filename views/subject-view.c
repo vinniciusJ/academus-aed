@@ -5,6 +5,9 @@
 
 #include "headers/subject-view.h"
 
+// Imprime o menu de opções da seção de disciplinas
+// Pré-condição: nenhuma
+// Pós-condição: o menu de opções da seção de disciplinas é impresso no terminal
 void show_subject_menu(){
     printf("+------------------------SISTEMA ACADEMUS------------------------+\n");
     printf("|----------------------Seção de disciplinas----------------------|\n");

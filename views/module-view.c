@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include "./headers/module-view.h"
 
+// Imprime o menu de opções da seção de módulos
+// Pré-condição: nenhuma
+// Pós-condição: o menu de opções da seção de módulos é impresso no terminal
 void show_module_menu(){
     printf("+------------------------SISTEMA ACADEMUS------------------------+\n");
     printf("|------------------------Seção de módulos------------------------|\n");

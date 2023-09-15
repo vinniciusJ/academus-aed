@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include "headers/professor-view.h"
 
+// Imprime o menu de opções da seção de professores
+// Pré-condição: nenhuma
+// Pós-condição: o menu de opções da seção de professores é impresso no terminal
 void show_professor_menu(){
     printf("+------------------------SISTEMA ACADEMUS------------------------+\n");
     printf("|----------------------Seção de professores----------------------|\n");

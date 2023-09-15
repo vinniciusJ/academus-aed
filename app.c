@@ -11,6 +11,9 @@
 #include "controllers/headers/module-controller.h"
 #include "utils/headers/views.h"
 
+// Imprime o menu de opções no terminal
+// Pré-condição: nenhuma
+// Pós-condição: o menu é impresso no terminal
 void show_menu(){
     printf("+------------------------SISTEMA ACADEMUS------------------------+\n");
     printf("|[0] - Sair do sistema                                           |\n");
@@ -22,7 +25,10 @@ void show_menu(){
     printf("+----------------------------------------------------------------+\n");
 }
 
-void app_router(){
+// Inicia a navegação do sistema e redireciona para o recurso solicitado
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado
+void start_app_router(){
     int option = 0;
 
     show_menu();
@@ -32,21 +38,21 @@ void app_router(){
         case 0:
             exit(EXIT_SUCCESS);
         case 1:
-            controller_router();
+            start_course_controller();
             break;
         case 2:
-            subject_router();
+            start_subject_router();
             break;
         case 3:
-            professor_router();
+            start_professor_router();
             break;
         case 4:
-            module_router();
+            start_module_router();
             break;
         default:
             show_invalid_option_message();
-            app_router();
+            start_app_router();
     }
 
-    app_router();
+    start_app_router();
 }

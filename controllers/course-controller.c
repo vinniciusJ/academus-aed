@@ -7,7 +7,10 @@
 #include "../app.h"
 #include "../utils/headers/views.h"
 
-void controller_router(){
+// Inicia a navegação na seção de cursos
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_course_controller(){
     int option = 0;
 
     show_course_menu();
@@ -15,12 +18,12 @@ void controller_router(){
 
     switch (option) {
         case 0:
-            app_router();
+            start_app_router();
             break;
         default:
             show_invalid_option_message();
-            controller_router();
+            start_course_controller();
     }
 
-    controller_router();
+    start_course_controller();
 }

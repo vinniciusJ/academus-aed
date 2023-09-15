@@ -5,6 +5,9 @@
 #ifndef ACADEMUS_MODULE_CONTROLLER_H
 #define ACADEMUS_MODULE_CONTROLLER_H
 
-void module_router();
+// Inicia a navegação na seção de módulo
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_module_router();
 
 #endif //ACADEMUS_MODULE_CONTROLLER_H

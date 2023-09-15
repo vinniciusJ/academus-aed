@@ -5,7 +5,14 @@
 #ifndef ACADEMUS_VIEWS_H
 #define ACADEMUS_VIEWS_H
 
+// Escaneia um valor inteiro pelo terminal informado pelo usuário
+// Pré-condição: nenhuma
+// Pós-condição: retorna o valor digitado pelo usuário
 int input_option();
+
+// Imprime uma mensagem de erro para uma opção inválida
+// Pré-condição: nenhuma
+// Pós-condição: mensagem de erro impressa no terminal
 void show_invalid_option_message();
 
 #endif //ACADEMUS_VIEWS_H

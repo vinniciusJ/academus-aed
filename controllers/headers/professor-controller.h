@@ -5,6 +5,9 @@
 #ifndef ACADEMUS_PROFESSOR_CONTROLLER_H
 #define ACADEMUS_PROFESSOR_CONTROLLER_H
 
-void professor_router();
+// Inicia a navegação na seção de professor
+// Pré-condição: nenhuma
+// Pós-condição: redireciona o usuário para o recurso solicitado na seção
+void start_professor_router();
 
 #endif //ACADEMUS_PROFESSOR_CONTROLLER_H
