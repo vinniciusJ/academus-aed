@@ -16,6 +16,6 @@ typedef struct {
 typedef struct {
     Subject item;
     int next;
-} SubjectList;
+} SubjectNode;
 
 #endif //ACADEMUS_MODULES_H

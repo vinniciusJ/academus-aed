@@ -14,6 +14,6 @@ typedef struct {
 typedef struct {
     Professor item;
     int next;
-} ProfessorList;
+} ProfessorNode;
 
 #endif //ACADEMUS_PROFESSOR_H

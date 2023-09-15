@@ -15,6 +15,6 @@ typedef struct {
 typedef struct {
     Module item;
     int next;
-} ModuleList;
+} ModuleNode;
 
 #endif //ACADEMUS_MODULE_H
