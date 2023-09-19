@@ -47,3 +47,11 @@ void create_course() {
 
     free_space(course);
 }
+
+// Lida com a visualização de todos os cursos
+// Pré-condição: nenhuma
+// Pós-condição: mostra todos os cursos cadastrados no arquivo
+void show_courses() {
+    FILE * file = open_file("course.bin", "rb");
+
+}

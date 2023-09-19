@@ -15,4 +15,9 @@ void start_course_controller();
 // Pós-condição: curso criado e inserido no arquivo course.bin
 void create_course();
 
+// Lida com a visualização de todos os cursos
+// Pré-condição: nenhuma
+// Pós-condição: mostra todos os cursos cadastrados no arquivo
+void show_courses();
+
 #endif //ACADEMUS_COURSE_CONTROLLER_H

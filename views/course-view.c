@@ -19,9 +19,9 @@ void show_course_menu(){
     printf("+----------------------------------------------------------------+\n");
 }
 
-// Imprime o menu de opções da seção de cursos
+// Requere do usuário as informações de um curso e retorna ele
 // Pré-condição: nenhuma
-// Pós-condição: o menu de opções da seção é impresso no terminal
+// Pós-condição: um ponteiro de curso é retornado e deve ser desalocado posteriormente
 Course * input_course(){
     printf("------------------------SISTEMA ACADEMUS--------------------------\n");
     printf("-----------------------Cadastro de cursos-------------------------\n\n");
