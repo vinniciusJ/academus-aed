@@ -10,4 +10,9 @@
 // Pós-condição: redireciona o usuário para o recurso solicitado na seção
 void start_professor_router();
 
+// Lida com a criação do professor
+// Pré-condição: nenhuma
+// Pós-condição: professor criado e inserido no arquivo
+void create_professor();
+
 #endif //ACADEMUS_PROFESSOR_CONTROLLER_H

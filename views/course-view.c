@@ -31,7 +31,7 @@ Course * input_course(){
     printf("Digite o código do curso: ");
     scanf("%d%*c", &course->code);
 
-    printf("\nDigite o nome do curso: ");
+    printf("\nDigite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
     scanf("%[^\n]%*c", course->name);
 
     printf("\n[E] Exatas | [B] Biológicas | [H] Humanas");
