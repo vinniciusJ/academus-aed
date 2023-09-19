@@ -38,7 +38,7 @@ void start_course_controller(){
 // Pré-condição: nenhuma
 // Pós-condição: curso criado e inserido no arquivo course.bin
 void create_course() {
-    FILE * file = open_file("course.bin", "wb");
+    FILE * file = open_file("course.bin", "r+b");
     Course * course = input_course();
 
     insert_course(*course, file);

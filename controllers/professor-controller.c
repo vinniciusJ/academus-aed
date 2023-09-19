@@ -36,7 +36,7 @@ void start_professor_router(){
 // Pré-condição: nenhuma
 // Pós-condição: professor criado e inserido no arquivo
 void create_professor() {
-    FILE * file = open_file("professor.bin", "wb");
+    FILE * file = open_file("professor.bin", "r+b");
     Professor * professor = input_professor();
 
     insert_professor(*professor, file);
