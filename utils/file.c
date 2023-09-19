@@ -4,19 +4,23 @@
 #include <stdlib.h>
 
 #include "headers/file.h"
+#include "headers/list.h"
 
 // Abre um arquivo
 // Pré-condição: nome válido de arquivo e o modo para abertura
 // Pós-condição: retorna um arquivo aberto
-FILE  * open_file(char * filename, char * mode){
-    FILE * file = NULL;
+FILE  * open_list_file(char * filename){
+    FILE * file_exists = fopen(filename, "rb");
 
-    file = fopen(filename, mode);
+    if(file_exists == NULL){
+        FILE * file = fopen(filename, "w+b");
 
-    if(file == NULL){
-        printf("Não foi possível encontrar o arquivo %s\n", filename);
-        exit(EXIT_FAILURE);
+        create_empty_list(file);
+
+        return file;
     }
 
-    return file;
+    fclose(file_exists);
+
+    return fopen(filename, "r+b");
 }

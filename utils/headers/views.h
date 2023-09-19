@@ -20,4 +20,6 @@ void show_sucess_message(char * message);
 // Pós-condição: mensagem de erro impressa no terminal
 void show_invalid_option_message();
 
+char * get_knowledge_area(char code);
+
 #endif //ACADEMUS_VIEWS_H

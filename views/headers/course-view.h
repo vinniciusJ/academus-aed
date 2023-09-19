@@ -17,4 +17,14 @@ void show_course_menu();
 // Pós-condição: um ponteiro de curso é retornado e deve ser desalocado posteriormente
 Course * input_course();
 
+// Mostra no terminal um curso cadastrado
+// Pré-condição: curso
+// Pós-condição: curso é mostrado em tela
+void show_course(Course course);
+
+// Mostra o cabeçalho da tabela dos cursos
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_course_table_header();
+
 #endif //ACADEMUS_COURSE_VIEW_H

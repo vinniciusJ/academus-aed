@@ -30,3 +30,16 @@ void show_invalid_option_message(){
 void show_sucess_message(char * message) {
     printf("\033[1;32m  %s \033[1;0m\n", message);
 }
+
+char * get_knowledge_area(char code){
+    switch (code) {
+        case 'E':
+            return "Exatas";
+        case 'B':
+            return "Biológicas";
+        case 'H':
+            return "Humanas";
+        default:
+            return "";
+    }
+}

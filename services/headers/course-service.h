@@ -14,5 +14,4 @@
 // Pós-condição: item salvo no arquivo lista
 void insert_course(Course course, FILE * file);
 
-
 #endif //ACADEMUS_COURSE_SERVICE_H

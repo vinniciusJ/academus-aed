@@ -6,6 +6,7 @@
 #include "headers/course-view.h"
 #include "../models/course.h"
 #include "../utils/headers/utils.h"
+#include "../utils/headers/views.h"
 
 // Imprime o menu de opções da seção de cursos
 // Pré-condição: nenhuma
@@ -40,4 +41,22 @@ Course * input_course(){
 
     printf("\n");
     return course;
+}
+
+// Mostra no terminal um curso cadastrado
+// Pré-condição: curso
+// Pós-condição: curso é mostrado em tela
+void show_course(Course course){
+    printf("|%-10d|%-50s|%-10s|\n", course.code, course.name, get_knowledge_area(course.area));
+    printf("|----------|--------------------------------------------------|----------|\n");
+}
+
+
+// Mostra o cabeçalho da tabela dos cursos
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_course_table_header(){
+    printf("+------------------------------------------------------------------------+\n");
+    printf("| %-10s| %-49s| %-10s|\n", "Código", "Nome", "Área");
+    printf("|----------|--------------------------------------------------|----------|\n");
 }

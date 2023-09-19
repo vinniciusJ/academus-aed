@@ -11,4 +11,5 @@ typedef struct {
     int free_position;
 } Header;
 
+
 #endif //ACADEMUS_HEADER_H
