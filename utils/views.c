@@ -23,3 +23,10 @@ int input_option(){
 void show_invalid_option_message(){
     printf("Opção inválida, informe uma opção valida!\n");
 }
+
+// Imprime uma mensagem de sucesso recebida por parâmetro
+// Pré-condição: nenhuma
+// Pós-condição: mensagem de sucesso impressa no terminal em verde
+void show_sucess_message(char * message) {
+    printf("\033[1;32m  %s \033[1;0m\n", message);
+}

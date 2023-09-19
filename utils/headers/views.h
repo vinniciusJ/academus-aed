@@ -10,6 +10,11 @@
 // Pós-condição: retorna o valor digitado pelo usuário
 int input_option();
 
+// Imprime uma mensagem de sucesso recebida por parâmetro
+// Pré-condição: nenhuma
+// Pós-condição: mensagem de sucesso impressa no terminal em verde
+void show_sucess_message(char * message);
+
 // Imprime uma mensagem de erro para uma opção inválida
 // Pré-condição: nenhuma
 // Pós-condição: mensagem de erro impressa no terminal
