@@ -53,13 +53,15 @@ void create_course() {
 
     free_space(course);
     fclose(file);
+
+    wait_to_continue();
 }
 
 // Lida com a visualização de todos os cursos
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos os cursos cadastrados no arquivo
 void show_courses() {
-    FILE * file = open_list_file("course_node.bin");
+    FILE * file = open_list_file("course.bin");
     Header * header = read_header(file);
 
     int position = header->head_position;
@@ -74,6 +76,6 @@ void show_courses() {
         show_course(course_node->item);
     } while (position != -1);
 
-    wait_to_continue();
     fclose(file);
+    wait_to_continue();
 }

@@ -11,10 +11,6 @@
 void insert_course(Course course, FILE * file){
     Header * header = read_header(file);
 
-    printf("head position = %d\n", header->head_position);
-    printf("top position = %d\n", header->top_position);
-    printf("free position = %d\n", header->free_position);
-
     CourseNode node = { course, header->head_position };
 
     if(header->free_position == -1){
@@ -32,8 +28,6 @@ void insert_course(Course course, FILE * file){
 
         aux = free_space(aux);
     }
-
-
 
     set_header(header, file);
     free_space(header);

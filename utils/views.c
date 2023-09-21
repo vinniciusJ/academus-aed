@@ -47,7 +47,6 @@ char * get_knowledge_area(char code){
 void wait_to_continue(){
     int c;
 
-
     printf("Press Enter to continue...");
 
     fflush(stdout);

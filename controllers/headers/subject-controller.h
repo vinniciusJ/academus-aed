@@ -15,4 +15,9 @@ void start_subject_router();
 // Pós-condição: disciplina criada e inserido no arquivo
 void create_subject();
 
+// Lida com a visualização de todos as matérias
+// Pré-condição: nenhuma
+// Pós-condição: mostra todos as matérias cadastradas no arquivo
+void show_subjects();
+
 #endif //ACADEMUS_SUBJECT_CONTROLLER_H

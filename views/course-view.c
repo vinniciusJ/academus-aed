@@ -43,14 +43,13 @@ Course * input_course(){
     return course;
 }
 
-// Mostra no terminal um curso cadastrado
+// Mostra no terminal uma linha que representa um curso cadastrado, deve ser usada em tabelas
 // Pré-condição: curso
 // Pós-condição: curso é mostrado em tela
 void show_course(Course course){
     printf("| %9d| %-49s| %-9s|\n", course.code, course.name, get_knowledge_area(course.area));
     printf("|----------|--------------------------------------------------|----------|\n");
 }
-
 
 // Mostra o cabeçalho da tabela dos cursos
 // Pré-condição: nenhuma

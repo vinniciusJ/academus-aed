@@ -43,3 +43,20 @@ Subject * input_subject(){
     printf("\n");
     return subject;
 }
+
+// Mostra no terminal uma linha que representa uma matéria cadastrada, deve ser usada em tabelas
+// Pré-condição: matéria
+// Pós-condição: matéria é mostrado em tela
+void show_subject(Subject subject){
+    printf("| %9d| %-49s| %-9d| %-5d|\n", subject.code, subject.name, subject.course_code, subject.year);
+    printf("|----------|--------------------------------------------------|----------|\n");
+}
+
+// Mostra o cabeçalho da tabela das matérias
+// Pré-condição: nenhuma
+// Pós-condição: Cabeçalho mostrado, portanto as linhas devem vir a seguir
+void show_subject_table_header(){
+    printf("+------------------------------------------------------------------------+\n");
+    printf("| %-10s| %-49s| %-10s| %-5s|\n", "Código", "Nome", "Curso", "Série");
+    printf("|----------|--------------------------------------------------|----------------|\n");
+}

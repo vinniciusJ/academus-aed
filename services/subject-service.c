@@ -15,6 +15,7 @@ void insert_subject(Subject subject, FILE * file){
 
     if(header->free_position == -1){
         set_node(&node, sizeof(SubjectNode), header->top_position, file); // Escrevendo nó no arquivo lista
+
         header->head_position = header->top_position;
         header->top_position++;
     }
@@ -29,4 +30,5 @@ void insert_subject(Subject subject, FILE * file){
     }
 
     set_header(header, file);
+    free_space(header);
 }

@@ -17,4 +17,14 @@ void show_subject_menu();
 // Pós-condição: um ponteiro de disciplina é retornado e deve ser desalocado posteriormente
 Subject * input_subject();
 
+// Mostra no terminal uma linha que representa uma matéria cadastrada, deve ser usada em tabelas
+// Pré-condição: matéria
+// Pós-condição: matéria é mostrado em tela
+void show_subject(Subject subject);
+
+// Mostra o cabeçalho da tabela das matérias
+// Pré-condição: nenhuma
+// Pós-condição: Cabeçalho mostrado, portanto as linhas devem vir a seguir
+void show_subject_table_header();
+
 #endif //ACADEMUS_SUBJECT_VIEW_H

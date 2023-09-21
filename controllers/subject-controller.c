@@ -11,6 +11,8 @@
 #include "../utils/headers/file.h"
 #include "../models/subject.h"
 #include "../services/headers/subject-service.h"
+#include "../models/header.h"
+#include "../utils/headers/list.h"
 
 // Inicia a navegação na seção de disciplina
 // Pré-condição: nenhuma
@@ -27,6 +29,9 @@ void start_subject_router(){
             break;
         case 1:
             create_subject();
+            break;
+        case 2:
+            show_subjects();
             break;
         default:
             show_invalid_option_message();
@@ -46,7 +51,34 @@ void create_subject() {
     insert_subject(*subject, file);
 
     show_sucess_message("Disciplina cadastrada com sucesso!");
+    show_subject_table_header();
+    show_subject(*subject);
 
     free_space(subject);
     fclose(file);
+
+    wait_to_continue();
+}
+
+// Lida com a visualização de todos as matérias
+// Pré-condição: nenhuma
+// Pós-condição: mostra todos as matérias cadastradas no arquivo
+void show_subjects() {
+    FILE * file = open_list_file("subject.bin");
+    Header * header = read_header(file);
+
+    int position = header->head_position;
+    SubjectNode * subject_node = NULL;
+
+    show_subject_table_header();
+
+    do{
+        subject_node = (SubjectNode *) read_node(position, sizeof(SubjectNode), file);
+        position = subject_node->next;
+
+        show_subject(subject_node->item);
+    } while (position != -1);
+
+    fclose(file);
+    wait_to_continue();
 }
