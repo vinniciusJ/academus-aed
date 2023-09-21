@@ -21,5 +21,7 @@ void show_sucess_message(char * message);
 void show_invalid_option_message();
 
 char * get_knowledge_area(char code);
+void wait_to_continue();
+
 
 #endif //ACADEMUS_VIEWS_H

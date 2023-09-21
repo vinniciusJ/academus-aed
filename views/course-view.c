@@ -32,11 +32,11 @@ Course * input_course(){
     printf("Digite o código do curso: ");
     scanf("%d%*c", &course->code);
 
-    printf("\nDigite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
+    printf("Digite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
     scanf("%[^\n]%*c", course->name);
 
-    printf("\n[E] Exatas | [B] Biológicas | [H] Humanas");
-    printf("\nDigite a área do curso: ");
+    printf("\n[E] Exatas | [B] Biológicas | [H] Humanas\n");
+    printf("Digite a área do curso: ");
     scanf("%c", &course->area);
 
     printf("\n");
@@ -47,7 +47,7 @@ Course * input_course(){
 // Pré-condição: curso
 // Pós-condição: curso é mostrado em tela
 void show_course(Course course){
-    printf("|%-10d|%-50s|%-10s|\n", course.code, course.name, get_knowledge_area(course.area));
+    printf("| %9d| %-49s| %-9s|\n", course.code, course.name, get_knowledge_area(course.area));
     printf("|----------|--------------------------------------------------|----------|\n");
 }
 

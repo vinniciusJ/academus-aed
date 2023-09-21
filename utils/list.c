@@ -30,7 +30,7 @@ void set_node(void * node, size_t size, int position, FILE * file){
 // Escreve no arquivo o cabeç alho contendo as informações da lista
 // Pré-condição: arquivo deve estar aberto e ser um arquivo de lista
 // Pós-condição: cabeçaalho escrito no arquivo
-void set_header(const Header * header, FILE * file){
+void set_header(Header * header, FILE * file){
     fseek(file, 0, SEEK_SET);
     fwrite(header, sizeof(Header), 1, file);
 }

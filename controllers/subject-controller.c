@@ -6,6 +6,7 @@
 #include "headers/subject-controller.h"
 #include "../views/headers/subject-view.h"
 #include "../utils/headers/views.h"
+#include "../utils/headers/utils.h"
 #include "../app.h"
 #include "../utils/headers/file.h"
 #include "../models/subject.h"
@@ -39,7 +40,7 @@ void start_subject_router(){
 // Pré-condição: nenhuma
 // Pós-condição: disciplina criada e inserido no arquivo
 void create_subject() {
-    FILE * file = open_file("subject.bin", "r+b");
+    FILE * file = open_list_file("subject.bin");
     Subject * subject = input_subject();
 
     insert_subject(*subject, file);

@@ -7,6 +7,7 @@
 #include "../app.h"
 #include "../utils/headers/views.h"
 #include "../utils/headers/file.h"
+#include "../utils/headers/list.h"
 #include "../services/headers/course-service.h"
 #include "../utils/headers/utils.h"
 
@@ -26,6 +27,9 @@ void start_course_controller(){
         case 1:
             create_course();
             break;
+        case 2:
+            show_courses();
+            break;
         default:
             show_invalid_option_message();
             start_course_controller();
@@ -43,15 +47,33 @@ void create_course() {
 
     insert_course(*course, file);
 
-    show_sucess_message("Curso cadastrado com sucesso!");
+    show_sucess_message("Curso cadastrado com sucesso!\n");
+    show_course_table_header();
+    show_course(*course);
 
     free_space(course);
+    fclose(file);
 }
 
 // Lida com a visualização de todos os cursos
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos os cursos cadastrados no arquivo
 void show_courses() {
-    FILE * file = open_file("course.bin", "rb");
+    FILE * file = open_list_file("course_node.bin");
+    Header * header = read_header(file);
 
+    int position = header->head_position;
+    CourseNode * course_node = NULL;
+
+    show_course_table_header();
+
+    do{
+        course_node = (CourseNode *) read_node(position, sizeof(CourseNode), file);
+        position = course_node->next;
+
+        show_course(course_node->item);
+    } while (position != -1);
+
+    wait_to_continue();
+    fclose(file);
 }

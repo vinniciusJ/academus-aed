@@ -5,6 +5,7 @@
 #include "../views/headers/professor-view.h"
 #include "../utils/headers/views.h"
 #include "../utils/headers/file.h"
+#include "../utils/headers/utils.h"
 #include "../app.h"
 #include "../models/professor.h"
 #include "../services/headers/professor-service.h"
@@ -36,7 +37,7 @@ void start_professor_router(){
 // Pré-condição: nenhuma
 // Pós-condição: professor criado e inserido no arquivo
 void create_professor() {
-    FILE * file = open_file("professor.bin", "r+b");
+    FILE * file = open_list_file("professor.bin");
     Professor * professor = input_professor();
 
     insert_professor(*professor, file);

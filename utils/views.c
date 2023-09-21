@@ -43,3 +43,16 @@ char * get_knowledge_area(char code){
             return "";
     }
 }
+
+void wait_to_continue(){
+    int c;
+
+
+    printf("Press Enter to continue...");
+
+    fflush(stdout);
+
+    do {
+        c = getchar();
+    } while (c != '\n' && c != EOF);
+}
