@@ -48,4 +48,5 @@ void create_subject() {
     show_sucess_message("Disciplina cadastrada com sucesso!");
 
     free_space(subject);
+    fclose(file);
 }

@@ -45,4 +45,5 @@ void create_professor() {
     show_sucess_message("Professor cadastrado com sucesso!");
 
     free_space(professor);
+    fclose(file);
 }
