@@ -32,3 +32,28 @@ void insert_subject(Subject subject, FILE * file){
     set_header(header, file);
     free_space(header);
 }
+
+// Busca uma disciplina pelo código na lista
+// Pré-condição: código da disciplina e um arquivo lista aberto para leitura
+// Pós-condição: disciplina ou NULL caso não tenha sido encontrado
+Subject * get_subject_by_code(int code, FILE * file){
+    Header * header = read_header(file);
+    SubjectNode * node = NULL;
+
+    int position = header->head_position;
+
+    if(is_list_empty(header)){
+        return NULL;
+    }
+
+    while (position != -1){
+        node = read_node(position, sizeof(SubjectNode), file);
+        position = node->next;
+
+        if(node != NULL && node->value.code == code){
+            return &node->value;
+        }
+    }
+
+    return NULL;
+}

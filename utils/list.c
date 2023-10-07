@@ -61,4 +61,11 @@ Header * read_header(FILE * file){
 
     return header;
 }
+// Verifica se a lista está vazia
+// Pré-condição: o cabeçalho do arquivo
+// Pós-condição: retorna se a lista está vazia
+int is_list_empty(Header * header){
+    return header->head_position == -1;
+}
+
 

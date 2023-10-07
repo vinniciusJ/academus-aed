@@ -29,3 +29,28 @@ void insert_professor(Professor professor, FILE * file){
 
     set_header(header, file);
 }
+
+// Busca um professor pelo código na lista
+// Pré-condição: código do professor e um arquivo lista aberto para leitura
+// Pós-condição: professor ou NULL caso não tenha sido encontrado
+Professor * get_professor_by_code(int code, FILE * file){
+    Header * header = read_header(file);
+    ProfessorNode * node = NULL;
+
+    int position = header->head_position;
+
+    if(is_list_empty(header)){
+        return NULL;
+    }
+
+    while (position != -1){
+        node = read_node(position, sizeof(ProfessorNode), file);
+        position = node->next;
+
+        if(node != NULL && node->value.code == code){
+            return &node->value;
+        }
+    }
+
+    return NULL;
+}

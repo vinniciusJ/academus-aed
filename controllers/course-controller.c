@@ -48,7 +48,7 @@ void create_course() {
     insert_course(*course, file);
 
     show_sucess_message("Curso cadastrado com sucesso!\n");
-    show_professor_table_header();
+    show_course_table_header();
     show_course(*course);
 
     free_space(course);

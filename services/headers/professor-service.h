@@ -13,4 +13,9 @@
 // Pós-condição: professor salvo no arquivo lista
 void insert_professor(Professor professor, FILE * file);
 
+// Busca um professor pelo código na lista
+// Pré-condição: código do professor e um arquivo lista aberto para leitura
+// Pós-condição: professor ou NULL caso não tenha sido encontrado
+Professor * get_professor_by_code(int code, FILE * file);
+
 #endif //ACADEMUS_PROFESSOR_SERVICE_H

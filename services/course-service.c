@@ -32,3 +32,28 @@ void insert_course(Course course, FILE * file){
     set_header(header, file);
     free_space(header);
 }
+
+// Busca um curso pelo código na lista
+// Pré-condição: código do curso e um arquivo lista aberto para leitura
+// Pós-condição: curso ou NULL caso não tenha sido encontrado
+Course * get_course_by_code(int code, FILE * file){
+    Header * header = read_header(file);
+    CourseNode * node = NULL;
+
+    int position = header->head_position;
+
+    if(is_list_empty(header)){
+        return NULL;
+    }
+
+    while (position != -1){
+        node = read_node(position, sizeof(CourseNode), file);
+        position = node->next;
+
+        if(node != NULL && node->value.code == code){
+            return &node->value;
+        }
+    }
+
+    return NULL;
+}

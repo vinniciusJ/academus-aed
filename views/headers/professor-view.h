@@ -6,6 +6,7 @@
 #define ACADEMUS_PROFESSOR_VIEW_H
 
 #include "../../models/professor.h"
+#include "../../models/module.h"
 
 // Imprime o menu de opções da seção de professores
 // Pré-condição: nenhuma

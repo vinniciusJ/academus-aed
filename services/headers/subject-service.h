@@ -14,4 +14,9 @@
 // Pós-condição: disciplina salvo no arquivo lista
 void insert_subject(Subject subject, FILE * file);
 
+// Busca uma disciplina pelo código na lista
+// Pré-condição: código da disciplina e um arquivo lista aberto para leitura
+// Pós-condição: disciplina ou NULL caso não tenha sido encontrado
+Subject * get_subject_by_code(int code, FILE * file);
+
 #endif //ACADEMUS_SUBJECT_SERVICE_H

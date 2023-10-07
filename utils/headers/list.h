@@ -33,6 +33,9 @@ Header * read_header(FILE * file);
 // Pós-condição: cabeçaalho escrito no arquivo
 void set_header(Header * header, FILE * file);
 
-
+// Verifica se a lista está vazia
+// Pré-condição: o cabeçalho do arquivo
+// Pós-condição: retorna se a lista está vazia
+int is_list_empty(Header * header);
 
 #endif //ACADEMUS_LIST_H

@@ -51,6 +51,8 @@ char * get_knowledge_area(char code){
 // Pós-condição: mensagem impressa no terminal
 void show_alert(char * alert){
     printf("\033[1;33m%s\033[0m\n", alert);
+
+    wait_to_continue();
 }
 
 void wait_to_continue(){
