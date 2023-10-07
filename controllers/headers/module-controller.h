@@ -20,5 +20,7 @@ void create_module();
 // Pós-condição: mostra todos os módulos cadastrados no arquivo
 void show_modules();
 
+void delete_course();
+
 
 #endif //ACADEMUS_MODULE_CONTROLLER_H

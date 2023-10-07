@@ -37,6 +37,9 @@ void start_module_router(){
         case 2:
             show_modules();
             break;
+        case 3:
+            delete_course();
+            break;
         default:
             show_invalid_option_message();
             start_module_router();
@@ -63,48 +66,6 @@ void create_module(){
 // Lida com a visualização de todos os módulos
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos os módulos cadastrados no arquivo
-/*void show_modules(){
-    FILE * module_file = open_list_file(MODULES_FILE);
-    FILE * professor_file = open_list_file("professor.bin");
-    FILE * subject_file = open_list_file("subject.bin");
-
-    Header * header = read_header(module_file);
-
-    int position = header->head_position;
-
-    ModuleNode * module_node = NULL;
-    Professor * professor = NULL;
-    Subject  * subject = NULL;
-
-    if(is_list_empty(header)){
-        show_alert("Nenhum módulo cadastrado no arquivo");
-        return;
-    }
-
-    show_module_table_header();
-
-    while(position != -1){
-        module_node = read_node(position, sizeof(ModuleNode), module_file);
-        Module module = module_node->value;
-
-        professor = get_professor_by_code(module.professor_code, professor_file);
-        subject = get_subject_by_code(module.subject_code, subject_file);
-
-        show_module(module, *subject, *professor);
-
-        free_space(subject);
-        free_space(professor);
-
-        position = module_node->next;
-    }
-
-    fclose(module_file);
-    fclose(professor_file);
-    fclose(subject_file);
-
-    wait_to_continue();
-}*/
-
 void show_modules(){
     FILE * module_file = open_list_file(MODULES_FILE);
     FILE * professor_file = open_list_file("professor.bin");
@@ -127,13 +88,13 @@ void show_modules(){
     while(course_position != -1){
         course_node = read_node(course_position, sizeof(CourseNode), courses_file);
 
-        show_module_table_header(course_node->value.name);
+        show_module_course(course_node->value.name);
+        show_module_table_header();
 
         while(module_position != -1){
             module_node = get_module_by_course(course_node->value.code, module_position, module_file, subject_file);
 
             if(module_node == NULL) {
-                show_emtpy_table_row();
                 break;
             }
 
@@ -166,4 +127,37 @@ void show_modules(){
     free_space(course_header);
 
     wait_to_continue();
+}
+
+void delete_course(){
+    FILE * modules_file = open_list_file(MODULES_FILE);
+    FILE * professor_file = open_list_file("professor.bin");
+    FILE * subject_file = open_list_file("subject.bin");
+
+    show_module_menu_header();
+
+    int academic_year = input_number("Informe o ano letivo");
+    int subject_code = input_number("Informe o código da disciplina");
+
+    Module * module = get_module_by(academic_year, subject_code, modules_file);
+
+    if(module == NULL){
+        show_alert("Não foi possível encontrar nenhum módulo de disciplina");
+        return;
+    }
+
+    Professor * professor = get_professor_by_code(module->professor_code, professor_file);
+    Subject  * subject = get_subject_by_code(module->subject_code, subject_file);
+
+    show_module_table_header();
+    show_module(*module, *subject, *professor);
+
+    int confirmed = confirm_action("Você deseja remover este módulo de disciplina?");
+
+    if(confirmed){
+        remove_module(*module, modules_file);
+        show_sucess_message("Módulo de disciplina excluído com sucesso");
+
+        wait_to_continue();
+    }
 }

@@ -26,7 +26,9 @@ Module * input_module();
 // Mostra o cabeçalho da tabela dos módulos
 // Pré-condição: nenhuma
 // Pós-condição: nenhuma
-void show_module_table_header(char * course_name);
+void show_module_table_header();
+
+void show_module_course(char * course_name);
 
 // Mostra no terminal uma linha que representa um módulos cadastrado, deve ser usada em tabelas
 // Pré-condição: módulo
@@ -34,5 +36,7 @@ void show_module_table_header(char * course_name);
 void show_module(Module module, Subject subject, Professor professor);
 
 void show_emtpy_table_row();
+
+
 
 #endif //ACADEMUS_MODULE_VIEW_H

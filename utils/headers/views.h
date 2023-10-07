@@ -28,7 +28,9 @@ void show_alert(char * alert);
 char * get_knowledge_area(char code);
 void wait_to_continue();
 
+int input_number(char * label);
 
+int confirm_action(char * label);
 
 
 #endif //ACADEMUS_VIEWS_H

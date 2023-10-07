@@ -20,4 +20,6 @@ void remove_module(Module module, FILE * file);
 
 ModuleNode * get_module_by_course(int course_code, int start_position, FILE * modules_file, FILE * subjects_file);
 
+Module * get_module_by(int academic_year, int subject_code, FILE * modules_file);
+
 #endif //ACADEMUS_MODULE_SERVICE_H

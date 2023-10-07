@@ -2,6 +2,7 @@
 // Created by vinniciusj on 13/09/23.
 //
 #include <stdlib.h>
+#include <ctype.h>
 
 #include "stdio.h"
 #include "headers/views.h"
@@ -67,4 +68,22 @@ void wait_to_continue(){
     } while (c != '\n' && c != EOF);
 
     system("clear");
+}
+
+int input_number(char * label){
+    int number = 0;
+
+    printf("%s: ", label);
+    scanf("%d%*c", &number);
+
+    return number;
+}
+
+int confirm_action(char * label){
+    char action;
+
+    printf("%s [y/n]: ", label);
+    scanf("%c%*c", &action);
+
+    return toupper(action) == 'Y';
 }

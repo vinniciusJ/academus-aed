@@ -43,13 +43,13 @@ Position get_module_position(Module module, Header * header, FILE * file){
     int position = header->head_position;
     int previous = header->head_position;
 
-    ModuleNode * aux = (ModuleNode *) read_node(position, sizeof(ModuleNode), file);
+    ModuleNode * aux = NULL;
 
     int subject_code = module.subject_code;
-    int professor_code = module.professor_code;
+    int academic_year = module.academic_year;
 
     while(position != -1  && (aux = read_node(position, sizeof(ModuleNode), file)) != NULL){
-        if(aux->value.professor_code == professor_code && aux->value.subject_code != subject_code){
+        if(aux->value.academic_year == academic_year && aux->value.subject_code == subject_code){
             break;
         }
 
@@ -69,7 +69,6 @@ Position get_module_position(Module module, Header * header, FILE * file){
 // Pós-condição: módulo retirado da lista caso pertença a ela
 void remove_module(Module module, FILE * file){
     Header * header = read_header(file);
-    ModuleNode * aux = NULL;
 
     Position position = get_module_position(module, header, file);
 
@@ -125,4 +124,27 @@ ModuleNode * get_module_by_course(int course_code, int start_position, FILE * mo
     return NULL;
 }
 
+Module * get_module_by(int academic_year, int subject_code, FILE * modules_file){
+    Header * header = read_header(modules_file);
+    ModuleNode * module_node = NULL;
 
+    int position = header->head_position;
+
+    if(is_list_empty(header)){
+        return NULL;
+    }
+
+    while(position != -1){
+        module_node = read_node(position, sizeof(ModuleNode), modules_file);
+
+        Module module = module_node->value;
+
+        if(module.subject_code == subject_code && module.academic_year == academic_year){
+            return &module_node->value;
+        }
+
+        position = module_node->next;
+    }
+
+    return NULL;
+}

@@ -20,4 +20,6 @@ void create_course();
 // Pós-condição: mostra todos os cursos cadastrados no arquivo
 void show_courses();
 
+void delete_course();
+
 #endif //ACADEMUS_COURSE_CONTROLLER_H
