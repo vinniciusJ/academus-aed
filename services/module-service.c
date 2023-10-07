@@ -47,7 +47,7 @@ Position get_module_position(Module module, Header * header, FILE * file){
     int professor_code = module.professor_code;
 
     while(position != -1  && (aux = read_node(position, sizeof(ModuleNode), file)) != NULL){
-        if(aux->item.professor_code == professor_code && aux->item.subject_code != subject_code){
+        if(aux->value.professor_code == professor_code && aux->value.subject_code != subject_code){
             break;
         }
 

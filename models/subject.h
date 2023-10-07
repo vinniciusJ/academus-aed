@@ -14,7 +14,7 @@ typedef struct {
 } Subject;
 
 typedef struct {
-    Subject item;
+    Subject value;
     int next;
 } SubjectNode;
 

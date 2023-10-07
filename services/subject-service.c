@@ -6,7 +6,7 @@
 #include "../utils/headers/list.h"
 
 
-// Insere um item no arquivo lista
+// Insere um value no arquivo lista
 // Pré-condição: uma nova disciplina e um arquivo aberto para escrita
 // Pós-condição: disciplina salvo no arquivo lista
 void insert_subject(Subject subject, FILE * file){

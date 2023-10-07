@@ -5,9 +5,9 @@
 #include "headers/course-service.h"
 #include "../utils/headers/utils.h"
 
-// Insere um item no arquivo lista
+// Insere um value no arquivo lista
 // Pré-condição: um novo curso e um arquivo aberto para escrita
-// Pós-condição: item salvo no arquivo lista
+// Pós-condição: value salvo no arquivo lista
 void insert_course(Course course, FILE * file){
     Header * header = read_header(file);
 

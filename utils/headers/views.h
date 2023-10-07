@@ -20,6 +20,11 @@ void show_sucess_message(char * message);
 // Pós-condição: mensagem de erro impressa no terminal
 void show_invalid_option_message();
 
+// Imprime uma mensagem de alerta com a cor amarela
+// Pré-condição: uma mensagem de alerta
+// Pós-condição: mensagem impressa no terminal
+void show_alert(char * alert);
+
 char * get_knowledge_area(char code);
 void wait_to_continue();
 

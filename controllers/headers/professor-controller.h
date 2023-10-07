@@ -15,4 +15,9 @@ void start_professor_router();
 // Pós-condição: professor criado e inserido no arquivo
 void create_professor();
 
+// Lida com a visualização de todos os professores
+// Pré-condição: nenhuma
+// Pós-condição: mostra todos os professores cadastrados no arquivo
+void show_professors();
+
 #endif //ACADEMUS_PROFESSOR_CONTROLLER_H

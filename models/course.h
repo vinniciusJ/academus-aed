@@ -14,7 +14,7 @@ typedef struct {
 } Course;
 
 typedef struct {
-    Course item;
+    Course value;
     int next;
 } CourseNode;
 

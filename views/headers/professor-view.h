@@ -17,4 +17,15 @@ void show_professor_menu();
 // Pós-condição: um ponteiro de professor é retornado e deve ser desalocado posteriormente
 Professor * input_professor();
 
+
+// Mostra o cabeçalho da tabela dos professores
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_professor_table_header();
+
+// Mostra no terminal uma linha que representa um professor cadastrado, deve ser usada em tabelas
+// Pré-condição: professor
+// Pós-condição: professor é mostrado em tela
+void show_professor(Professor professor);
+
 #endif //ACADEMUS_PROFESSOR_VIEW_H

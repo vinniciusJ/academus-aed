@@ -48,7 +48,7 @@ void create_course() {
     insert_course(*course, file);
 
     show_sucess_message("Curso cadastrado com sucesso!\n");
-    show_course_table_header();
+    show_professor_table_header();
     show_course(*course);
 
     free_space(course);
@@ -73,7 +73,7 @@ void show_courses() {
         course_node = (CourseNode *) read_node(position, sizeof(CourseNode), file);
         position = course_node->next;
 
-        show_course(course_node->item);
+        show_course(course_node->value);
     } while (position != -1);
 
     fclose(file);

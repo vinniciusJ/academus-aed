@@ -13,7 +13,7 @@ typedef struct {
 } Module;
 
 typedef struct {
-    Module item;
+    Module value;
     int next;
 } ModuleNode;
 

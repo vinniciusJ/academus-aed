@@ -76,7 +76,7 @@ void show_subjects() {
         subject_node = (SubjectNode *) read_node(position, sizeof(SubjectNode), file);
         position = subject_node->next;
 
-        show_subject(subject_node->item);
+        show_subject(subject_node->value);
     } while (position != -1);
 
     fclose(file);

@@ -12,7 +12,7 @@ typedef struct {
 } Professor;
 
 typedef struct {
-    Professor item;
+    Professor value;
     int next;
 } ProfessorNode;
 

@@ -30,9 +30,27 @@ Professor * input_professor(){
     printf("Digite o código do professor: ");
     scanf("%d%*c", &professor->code);
 
-    printf("\nDigite o nome do professor (até %d caracteres): ", NAME_LENGTH);
+    printf("Digite o nome do professor (até %d caracteres): ", NAME_LENGTH);
     scanf("%[^\n]%*c", professor->name);
 
     printf("\n");
     return professor;
+}
+
+
+// Mostra o cabeçalho da tabela dos cursos
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_professor_table_header(){
+    printf("+-------------------------------------------------------------+\n");
+    printf("| %-10s| %-49s|\n", "Código", "Nome");
+    printf("|----------|--------------------------------------------------|\n");
+}
+
+// Mostra no terminal uma linha que representa um professor cadastrado, deve ser usada em tabelas
+// Pré-condição: professor
+// Pós-condição: professor é mostrado em tela
+void show_professor(Professor professor){
+    printf("| %9d| %-49s|\n", professor.code, professor.name);
+    printf("|----------|--------------------------------------------------|\n");
 }
