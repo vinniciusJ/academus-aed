@@ -54,7 +54,7 @@ void create_course() {
     free_space(course);
     fclose(file);
 
-    wait_to_continue();
+    //wait_to_continue();
 }
 
 // Lida com a visualização de todos os cursos
@@ -67,14 +67,20 @@ void show_courses() {
     int position = header->head_position;
     CourseNode * course_node = NULL;
 
+    if(is_list_empty(header)){
+        show_alert("Não há nenhum curso cadastrado");
+        return;
+    }
+
     show_course_table_header();
 
-    do{
+    while(position != -1){
         course_node = (CourseNode *) read_node(position, sizeof(CourseNode), file);
         position = course_node->next;
 
         show_course(course_node->value);
-    } while (position != -1);
+    }
+
 
     fclose(file);
     wait_to_continue();

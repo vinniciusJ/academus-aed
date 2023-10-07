@@ -34,6 +34,8 @@ void start_app_router(){
     show_menu();
     option = input_option();
 
+    system("clear");
+
     switch (option) {
         case 0:
             exit(EXIT_SUCCESS);
@@ -54,5 +56,6 @@ void start_app_router(){
             start_app_router();
     }
 
+    wait_to_continue();
     start_app_router();
 }

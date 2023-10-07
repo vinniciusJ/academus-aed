@@ -57,6 +57,6 @@ void show_subject(Subject subject){
 // Pós-condição: Cabeçalho mostrado, portanto as linhas devem vir a seguir
 void show_subject_table_header(){
     printf("+--------------------------------------------------------------------------------+\n");
-    printf("| %-10s| %-49s| %-10s| %-4s|\n", "Código", "Nome", "Curso", "Série");
+    printf("| %-10s| %-50s| %-10s| %-4s|\n", "Código", "Nome", "Curso", "Série");
     printf("|----------|--------------------------------------------------|-----------|------|\n");
 }

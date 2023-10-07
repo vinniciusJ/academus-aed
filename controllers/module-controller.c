@@ -14,6 +14,7 @@
 #include "../services/headers/module-service.h"
 #include "../services/headers/professor-service.h"
 #include "../services/headers/subject-service.h"
+#include "../models/course.h"
 
 #define MODULES_FILE "modules.bin"
 
@@ -62,7 +63,7 @@ void create_module(){
 // Lida com a visualização de todos os módulos
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos os módulos cadastrados no arquivo
-void show_modules(){
+/*void show_modules(){
     FILE * module_file = open_list_file(MODULES_FILE);
     FILE * professor_file = open_list_file("professor.bin");
     FILE * subject_file = open_list_file("subject.bin");
@@ -100,6 +101,69 @@ void show_modules(){
     fclose(module_file);
     fclose(professor_file);
     fclose(subject_file);
+
+    wait_to_continue();
+}*/
+
+void show_modules(){
+    FILE * module_file = open_list_file(MODULES_FILE);
+    FILE * professor_file = open_list_file("professor.bin");
+    FILE * subject_file = open_list_file("subject.bin");
+    FILE * courses_file = open_list_file("course.bin");
+
+    Header * course_header = read_header(courses_file);
+    Header * module_header = read_header(module_file);
+
+    ModuleNode * module_node = NULL;
+    CourseNode * course_node = NULL;
+
+    int course_position = course_header->head_position, module_position = module_header->head_position;
+
+    if(is_list_empty(course_header)){
+        show_alert("Nenhum curso e módulo cadastrados\n");
+        return;
+    }
+
+    while(course_position != -1){
+        course_node = read_node(course_position, sizeof(CourseNode), courses_file);
+
+        show_module_table_header(course_node->value.name);
+
+        while(module_position != -1){
+            module_node = get_module_by_course(course_node->value.code, module_position, module_file, subject_file);
+
+            if(module_node == NULL) {
+                show_emtpy_table_row();
+                break;
+            }
+
+            Module module = module_node->value;
+
+            Professor * professor = get_professor_by_code(module.professor_code, professor_file);
+            Subject * subject = get_subject_by_code(module.subject_code, subject_file);
+
+            show_module(module, *subject, *professor);
+
+            module_position = module_node->next;
+
+            free_space(module_node);
+            free_space(subject);
+            free_space(professor);
+        }
+
+        course_position = course_node->next;
+        module_position = module_header->head_position;;
+
+        free_space(course_node);
+    }
+
+    fclose(subject_file);
+    fclose(module_file);
+    fclose(courses_file);
+    fclose(professor_file);
+
+    free_space(module_header);
+    free_space(course_header);
 
     wait_to_continue();
 }

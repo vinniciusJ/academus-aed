@@ -52,16 +52,23 @@ Module * input_module(){
 // Mostra o cabeçalho da tabela dos módulos
 // Pré-condição: nenhuma
 // Pós-condição: nenhuma
-void show_module_table_header(){
-    printf("+-------------------------------------------------------------+\n");
-    printf("| %10s| %-49s| %-49s|\n", "Ano letivo", "Disciplina", "Professor");
-    printf("|----------|--------------------------------------------------|\n");
+void show_module_table_header(char * course_name){
+    printf("+----------------------------------------------------------------------------------------------------------------------------+\n");
+    printf("| Curso: %-118s |\n", course_name);
+    printf("+--------------------------------------------------------------------------------------------------------------------+-------+\n");
+    printf("| %10s| %-10s| %-49s| %-49s|\n", "Ano letivo", "Série", "Disciplina", "Professor");
+    printf("|-----------|----------|--------------------------------------------------|--------------------------------------------------|\n");
 }
 
 // Mostra no terminal uma linha que representa um módulos cadastrado, deve ser usada em tabelas
 // Pré-condição: módulo
 // Pós-condição: módulo é impresso no terminal
 void show_module(Module module, Subject subject, Professor professor){
-    printf("| %10d| %-49s| %-49s|\n", module.academic_year, subject.name, professor.name);
-    printf("|----------|--------------------------------------------------|\n");
+    printf("| %10d| %9d| %-49s| %-49s|\n", module.academic_year, subject.year, subject.name, professor.name);
+    printf("|-----------|----------|--------------------------------------------------|--------------------------------------------------|\n");
+}
+
+void show_emtpy_table_row(){
+    printf("| %-122s |\n", "Nenhum registro encontrado");
+    printf("+----------------------------------------------------------------------------------------------------------------------------+\n");
 }

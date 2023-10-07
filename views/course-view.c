@@ -32,6 +32,7 @@ Course * input_course(){
     printf("Digite o código do curso: ");
     scanf("%d%*c", &course->code);
 
+
     printf("Digite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
     scanf("%[^\n]%*c", course->name);
 
@@ -39,7 +40,7 @@ Course * input_course(){
     printf("Digite a área do curso: ");
     scanf("%c", &course->area);
 
-    printf("\n");
+
     return course;
 }
 
@@ -47,15 +48,15 @@ Course * input_course(){
 // Pré-condição: curso
 // Pós-condição: curso é mostrado em tela
 void show_course(Course course){
-    printf("| %9d| %-49s| %-9s|\n", course.code, course.name, get_knowledge_area(course.area));
-    printf("|----------|--------------------------------------------------|----------|\n");
+    printf("| %9d| %-49s| %-10s|\n", course.code, course.name, get_knowledge_area(course.area));
+    printf("|----------|--------------------------------------------------|-----------|\n");
 }
 
 // Mostra o cabeçalho da tabela dos cursos
 // Pré-condição: nenhuma
 // Pós-condição: nenhuma
 void show_course_table_header(){
-    printf("+------------------------------------------------------------------------+\n");
-    printf("| %-10s| %-49s| %-10s|\n", "Código", "Nome", "Área");
-    printf("|----------|--------------------------------------------------|----------|\n");
+    printf("+-------------------------------------------------------------------------+\n");
+    printf("| %-10s| %-49s| %-11s|\n", "Código", "Nome", "Área");
+    printf("|----------|--------------------------------------------------|-----------|\n");
 }

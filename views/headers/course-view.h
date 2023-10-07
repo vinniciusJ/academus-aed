@@ -27,4 +27,6 @@ void show_course(Course course);
 // Pós-condição: nenhuma
 void show_course_table_header();
 
+
+
 #endif //ACADEMUS_COURSE_VIEW_H

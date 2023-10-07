@@ -18,4 +18,6 @@ void insert_module(Module module, FILE * file);
 // Pós-condição: módulo retirado da lista caso pertença a ela
 void remove_module(Module module, FILE * file);
 
+ModuleNode * get_module_by_course(int course_code, int start_position, FILE * modules_file, FILE * subjects_file);
+
 #endif //ACADEMUS_MODULE_SERVICE_H
