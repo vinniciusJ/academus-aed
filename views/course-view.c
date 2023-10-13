@@ -39,7 +39,9 @@ Course * input_course(){
     printf("\n[E] Exatas | [B] Biológicas | [H] Humanas\n");
     printf("Digite a área do curso: ");
     scanf("%c", &course->area);
+    scanf("%c");
 
+    system("clear");
 
     return course;
 }

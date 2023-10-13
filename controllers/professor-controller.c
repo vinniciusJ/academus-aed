@@ -48,10 +48,15 @@ void create_professor() {
 
     insert_professor(*professor, file);
 
-    show_sucess_message("Professor cadastrado com sucesso!");
+    show_sucess_message("Professor(a) cadastrado com sucesso!");
+
+    show_professor_table_header();
+    show_professor(*professor);
 
     free_space(professor);
     fclose(file);
+
+    wait_to_continue();
 }
 
 // Lida com a visualização de todos os professores
@@ -66,9 +71,6 @@ void show_professors(){
 
     if(position == -1){
         show_alert("\u26A0 Não existe nenhum professor cadastrado no sistema");
-        wait_to_continue();
-
-
         return;
     }
     show_professor_table_header();
@@ -82,5 +84,4 @@ void show_professors(){
 
     fclose(file);
     wait_to_continue();
-
 }

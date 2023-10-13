@@ -40,7 +40,7 @@ Subject * input_subject(){
     printf("Digite a série da disciplina: ");
     scanf("%d%*c", &subject->year);
 
-    printf("\n");
+    system("clear");
     return subject;
 }
 

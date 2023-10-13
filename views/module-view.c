@@ -44,7 +44,7 @@ Module * input_module(){
     printf("Digite o código do professor: ");
     scanf("%d%*c", &module->professor_code);
 
-    printf("\n");
+    system("clear");
 
     return module;
 }

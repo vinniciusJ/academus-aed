@@ -23,17 +23,17 @@ void show_professor_menu(){
 // Pós-condição: um ponteiro de professor é retornado e deve ser desalocado posteriormente
 Professor * input_professor(){
     printf("------------------------SISTEMA ACADEMUS--------------------------\n");
-    printf("-----------------------Cadastro de professor-------------------------\n\n");
+    printf("-----------------------Cadastro de professor(a)-------------------------\n\n");
 
     Professor * professor = (Professor *) alloc(sizeof(Professor));
 
-    printf("Digite o código do professor: ");
+    printf("Digite o código do professor(a): ");
     scanf("%d%*c", &professor->code);
 
-    printf("Digite o nome do professor (até %d caracteres): ", NAME_LENGTH);
+    printf("Digite o nome do professor(a) (até %d caracteres): ", NAME_LENGTH);
     scanf("%[^\n]%*c", professor->name);
 
-    printf("\n");
+    system("clear");
     return professor;
 }
 

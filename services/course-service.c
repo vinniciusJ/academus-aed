@@ -26,7 +26,7 @@ void insert_course(Course course, FILE * file){
         header->head_position = header->free_position;
         header->head_position = aux->next;
 
-        aux = free_space(aux);
+        free_space(aux);
     }
 
     set_header(header, file);

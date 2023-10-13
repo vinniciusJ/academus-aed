@@ -47,14 +47,14 @@ void create_course() {
 
     insert_course(*course, file);
 
-    show_sucess_message("Curso cadastrado com sucesso!\n");
+    show_sucess_message("Curso cadastrado com sucesso!");
     show_course_table_header();
     show_course(*course);
 
     free_space(course);
     fclose(file);
 
-    //wait_to_continue();
+    wait_to_continue();
 }
 
 // Lida com a visualização de todos os cursos
@@ -80,7 +80,6 @@ void show_courses() {
 
         show_course(course_node->value);
     }
-
 
     fclose(file);
     wait_to_continue();

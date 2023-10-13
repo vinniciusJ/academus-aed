@@ -60,7 +60,7 @@ void create_subject() {
     wait_to_continue();
 }
 
-// Lida com a visualização de todos as matérias
+// Lida com a visualização de todas as disciplinas
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos as matérias cadastradas no arquivo
 void show_subjects() {
