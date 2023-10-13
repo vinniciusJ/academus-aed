@@ -29,6 +29,7 @@ void show_menu(){
 // Pré-condição: nenhuma
 // Pós-condição: redireciona o usuário para o recurso solicitado
 void start_app_router(){
+    system("clear");
     int option = 0;
 
     show_menu();
