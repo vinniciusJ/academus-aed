@@ -16,7 +16,7 @@
 #include "../services/headers/subject-service.h"
 #include "../models/course.h"
 
-#define MODULES_FILE "modules.bin"
+#define MODULES_FILE "module.bin"
 
 // Inicia a navegação na seção de módulo
 // Pré-condição: nenhuma
