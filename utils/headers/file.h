@@ -11,4 +11,9 @@
 // Pós-condição: retorna um arquivo aberto
 FILE * open_list_file(char * filename);
 
+// Abre um arquivo txt para leitura
+// Pré-condição: nenhuma
+// Pós-condição: retorna o arquivo aberto para leitura
+FILE * open_read_file(char * filename);
+
 #endif //ACADEMUS_FILE_H

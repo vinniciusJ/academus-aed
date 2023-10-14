@@ -24,3 +24,18 @@ FILE  * open_list_file(char * filename){
 
     return fopen(filename, "r+b");
 }
+
+// Abre um arquivo txt para leitura
+// Pré-condição: nenhuma
+// Pós-condição: retorna o arquivo aberto para leitura
+FILE * open_read_file(char * filename) {
+    FILE * file;
+    file = fopen(filename, "r");
+
+    if(file == NULL) {
+        printf("\nNão foi possível abrir o arquivo!\n");
+        return 0;
+    }
+
+    return file;
+}

@@ -24,7 +24,7 @@ int input_option(){
 // Pré-condição: nenhuma
 // Pós-condição: mensagem de erro impressa no terminal
 void show_invalid_option_message(){
-    printf("Opção inválida, informe uma opção valida!\n");
+    printf("Opção inválida, informe uma opção valida!\n\n5");
 }
 
 // Imprime uma mensagem de sucesso recebida por parâmetro

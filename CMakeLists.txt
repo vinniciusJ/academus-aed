@@ -42,4 +42,8 @@ add_executable(academus main.c
         services/headers/subject-service.h
         services/subject-service.c
         services/headers/module-service.h
-        services/module-service.c)
+        services/module-service.c
+        controllers/controller.c
+        controllers/headers/controller.h
+        services/headers/service.h
+        services/service.c)

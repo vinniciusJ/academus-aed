@@ -9,6 +9,7 @@
 #include "controllers/headers/subject-controller.h"
 #include "controllers/headers/professor-controller.h"
 #include "controllers/headers/module-controller.h"
+#include "controllers/headers/controller.h"
 #include "utils/headers/views.h"
 
 // Imprime o menu de opções no terminal
@@ -52,8 +53,12 @@ void start_app_router(){
         case 4:
             start_module_router();
             break;
+        case 5:
+            create_in_batch();
+            break;
         default:
             show_invalid_option_message();
+            wait_to_continue();
             start_app_router();
     }
 
