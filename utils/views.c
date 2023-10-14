@@ -51,7 +51,7 @@ char * get_knowledge_area(char code){
 // Pré-condição: uma mensagem de alerta
 // Pós-condição: mensagem impressa no terminal
 void show_alert(char * alert){
-    printf("\033[1;33m%s\033[0m\n", alert);
+    printf("\033[1;33m\u26A0 %s\033[0m\n", alert);
 
     wait_to_continue();
 }
@@ -59,7 +59,7 @@ void show_alert(char * alert){
 void wait_to_continue(){
     int c;
 
-    printf("Pressione 'Enter' para continuar...");
+    printf("\nPressione 'Enter' para continuar...");
 
     fflush(stdout);
 

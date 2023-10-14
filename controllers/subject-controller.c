@@ -70,6 +70,11 @@ void show_subjects() {
     int position = header->head_position;
     SubjectNode * subject_node = NULL;
 
+    if(is_list_empty(header)){
+        show_alert("Não há nenhuma disciplina cadastrada!");
+        return;
+    }
+
     show_subject_table_header();
 
     do{

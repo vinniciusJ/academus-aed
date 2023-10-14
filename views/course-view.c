@@ -57,8 +57,16 @@ void show_course(Course course){
 // Mostra o cabeçalho da tabela dos cursos
 // Pré-condição: nenhuma
 // Pós-condição: nenhuma
-void show_course_table_header(){
+void show_course_table_header() {
     printf("+-------------------------------------------------------------------------+\n");
     printf("| %-10s| %-49s| %-11s|\n", "Código", "Nome", "Área");
     printf("|----------|--------------------------------------------------|-----------|\n");
+}
+
+// Mostra o cabeçalho da seção de listagem de cursos
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_course_list_heading() {
+    printf("------------------------SISTEMA ACADEMUS-----------------------------------\n");
+    printf("-----------------------Listagem de cursos----------------------------------\n\n");
 }

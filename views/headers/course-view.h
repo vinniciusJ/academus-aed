@@ -27,6 +27,9 @@ void show_course(Course course);
 // Pós-condição: nenhuma
 void show_course_table_header();
 
-
+// Mostra o cabeçalho da seção de listagem de cursos
+// Pré-condição: nenhuma
+// Pós-condição: nenhuma
+void show_course_list_heading();
 
 #endif //ACADEMUS_COURSE_VIEW_H

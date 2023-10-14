@@ -147,8 +147,10 @@ void delete_course(){
 
     show_module_menu_header();
 
+    printf("\n");
     int academic_year = input_number("Informe o ano letivo");
     int subject_code = input_number("Informe o código da disciplina");
+    printf("\n");
 
     Module * module = get_module_by(academic_year, subject_code, modules_file);
 
@@ -166,6 +168,7 @@ void delete_course(){
     int confirmed = confirm_action("Você deseja remover este módulo de disciplina?");
 
     if(confirmed){
+        system("clear");
         remove_module(*module, modules_file);
         show_sucess_message("Módulo de disciplina excluído com sucesso");
 

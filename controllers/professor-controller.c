@@ -70,7 +70,7 @@ void show_professors(){
     ProfessorNode * professor_node = NULL;
 
     if(position == -1){
-        show_alert("\u26A0 Não existe nenhum professor cadastrado no sistema");
+        show_alert("Não existe nenhum professor cadastrado no sistema");
         return;
     }
     show_professor_table_header();

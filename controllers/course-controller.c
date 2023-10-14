@@ -20,6 +20,8 @@ void start_course_controller(){
     show_course_menu();
     option = input_option();
 
+    system("clear");
+
     switch (option) {
         case 0:
             start_app_router();
@@ -67,8 +69,10 @@ void show_courses() {
     int position = header->head_position;
     CourseNode * course_node = NULL;
 
+    show_course_list_heading();
+
     if(is_list_empty(header)){
-        show_alert("Não há nenhum curso cadastrado");
+        show_alert("Não há nenhum curso cadastrado!");
         return;
     }
 
