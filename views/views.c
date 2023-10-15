@@ -3,6 +3,7 @@
 //
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #include "stdio.h"
 #include "headers/views.h"
@@ -32,7 +33,6 @@ void show_invalid_option_message(){
 // Pós-condição: mensagem de sucesso impressa no terminal em verde
 void show_sucess_message(char * message) {
     printf("\n\033[1;32m  %s \033[1;0m\n\n", message);
-    scanf("%c");
 }
 
 // Imprime uma mensagem de erro recebida por parâmetro
@@ -40,7 +40,6 @@ void show_sucess_message(char * message) {
 // Pós-condição: mensagem de erro impressa no terminal em vermelho
 void show_error_message(char * message) {
     printf("\n\033[31m %s \033[1;0m\n\n", message);
-    scanf("%c");
 }
 
 char * get_knowledge_area(char code){
@@ -95,4 +94,26 @@ int confirm_action(char * label){
     scanf("%c%*c", &action);
 
     return toupper(action) == 'Y';
+}
+
+// Diz se o código é válido
+// Pré-condição: inteiro
+// Pós-condição: inteiro validado
+int is_valid_natural(int code) {
+    if(code < 0) {
+        show_error_message("Código inválido! Por favor, digite novamente.");
+        return 0;
+    }
+    return 1;
+}
+
+// Diz se a string ultrapassou o tamanho máximo
+// Pré-condição: string e máximo de caracters
+// Pós-condição: string validada
+int is_valid_string(char * str, int max) {
+    if (strlen(str) > max) {
+        //show_error_message("A string digitada ultrapassa o tamanho máximo permitido! Por favor, digite novamente.");
+        return 0;
+    }
+    return 1;
 }

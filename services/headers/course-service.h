@@ -22,7 +22,7 @@ Course * get_course_by_code(int code, FILE * file);
 
 // Valida o curso e retorna uma mensagem de feedback de acordo com o resultado
 // Pré-condição: um novo curso e um arquivo aberto para leitura
-// Pós-condição: mensagem de feedback para ser mostrada
+// Pós-condição: mensagem de feedback para ser mostrada (código 1 para sucesso e 0 para erro)
 Status * validate_course(Course course, FILE * file);
 
 #endif //ACADEMUS_COURSE_SERVICE_H

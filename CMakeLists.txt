@@ -18,8 +18,8 @@ add_executable(academus main.c
         views/headers/subject-view.h
         views/subject-view.c
         controllers/subject-controller.c
-        utils/headers/views.h
-        utils/views.c
+        views/headers/views.h
+        views/views.c
         controllers/headers/professor-controller.h
         controllers/professor-controller.c
         views/headers/professor-view.h

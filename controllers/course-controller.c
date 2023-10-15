@@ -5,7 +5,7 @@
 #include "headers/course-controller.h"
 #include "../views/headers/course-view.h"
 #include "../app.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 #include "../utils/headers/file.h"
 #include "../utils/headers/list.h"
 #include "../services/headers/course-service.h"

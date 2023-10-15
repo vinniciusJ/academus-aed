@@ -37,4 +37,14 @@ int confirm_action(char * label);
 // Pós-condição: mensagem de erro impressa no terminal em vermelho
 void show_error_message(char * message);
 
+// Diz se o código é válido
+// Pré-condição: inteiro
+// Pós-condição: inteiro validado
+int is_valid_natural(int code);
+
+// Diz se a string ultrapassou o tamanho máximo
+// Pré-condição: string e máximo de caracters
+// Pós-condição: string validada
+int is_valid_string(char * str, int max);
+
 #endif //ACADEMUS_VIEWS_H

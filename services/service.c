@@ -12,7 +12,7 @@
 #include "../views/headers/module-view.h"
 #include "headers/course-service.h"
 #include "../utils/headers/file.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 #include "headers/subject-service.h"
 #include "headers/professor-service.h"
 #include "headers/module-service.h"

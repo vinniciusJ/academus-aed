@@ -6,6 +6,7 @@
 #include "headers/subject-view.h"
 #include "../models/subject.h"
 #include "../utils/headers/utils.h"
+#include "headers/views.h"
 
 // Imprime o menu de opções da seção de disciplinas
 // Pré-condição: nenhuma
@@ -28,17 +29,23 @@ Subject * input_subject(){
 
     Subject * subject = (Subject *) alloc(sizeof(Subject));
 
-    printf("Digite o código da disciplina: ");
-    scanf("%d%*c", &subject->code);
+    do {
+        printf("Digite o código da disciplina: ");
+        scanf("%d%*c", &subject->code);
+    } while (!is_valid_natural(subject->code));
 
     printf("Digite o nome da disciplina (até %d caracteres): ", NAME_LENGTH);
     scanf("%[^\n]%*c", subject->name);
 
-    printf("Digite o código do curso que a disciplina pertence: ");
-    scanf("%d%*c", &subject->course_code);
+    do {
+        printf("Digite o código do curso que a disciplina pertence: ");
+        scanf("%d%*c", &subject->course_code);
+    } while (!is_valid_natural(subject->code));
 
-    printf("Digite a série da disciplina: ");
-    scanf("%d%*c", &subject->year);
+    do {
+        printf("Digite a série da disciplina: ");
+        scanf("%d%*c", &subject->year);
+    } while (!is_valid_natural(subject->code));
 
     system("clear");
     return subject;

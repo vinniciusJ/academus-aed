@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #include "./headers/module-controller.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 #include "../views/headers/module-view.h"
 #include "../app.h"
 #include "../utils/headers/file.h"

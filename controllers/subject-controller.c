@@ -5,7 +5,7 @@
 
 #include "headers/subject-controller.h"
 #include "../views/headers/subject-view.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 #include "../utils/headers/utils.h"
 #include "../app.h"
 #include "../utils/headers/file.h"
@@ -50,11 +50,15 @@ void create_subject() {
     FILE * file = open_list_file("subject.bin");
     Subject * subject = input_subject();
 
-    insert_subject(*subject, file);
+    Status * status = insert_subject(*subject, file);
 
-    show_sucess_message("Disciplina cadastrada com sucesso!");
-    show_subject_table_header();
-    show_subject(*subject);
+    if(status->code == 1) {
+        show_sucess_message(status->message);
+        show_subject_table_header();
+        show_subject(*subject);
+    } else {
+        show_error_message(status->message);
+    }
 
     free_space(subject);
     fclose(file);

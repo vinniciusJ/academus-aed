@@ -3,7 +3,7 @@
 //
 #include "headers/professor-controller.h"
 #include "../views/headers/professor-view.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 #include "../utils/headers/file.h"
 #include "../utils/headers/utils.h"
 #include "../app.h"

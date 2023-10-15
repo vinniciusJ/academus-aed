@@ -64,7 +64,7 @@ Course * get_course_by_code(int code, FILE * file){
 
 // Valida o curso e retorna um status da inserção de acordo com o resultado
 // Pré-condição: um novo curso e um arquivo aberto para leitura
-// Pós-condição: status para a inserção
+// Pós-condição: status para a inserção (código 1 para sucesso e 0 para erro)
 Status * validate_course(Course course, FILE * file) {
     Status * status = (Status *) alloc(sizeof(Status));
 

@@ -4,7 +4,7 @@
 #include "headers/controller.h"
 #include "../utils/headers/file.h"
 #include "../services/headers/service.h"
-#include "../utils/headers/views.h"
+#include "../views/headers/views.h"
 
 // Lida com a inclusão em lote
 // Pré-condição: nenhuma

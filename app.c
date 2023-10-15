@@ -10,7 +10,7 @@
 #include "controllers/headers/professor-controller.h"
 #include "controllers/headers/module-controller.h"
 #include "controllers/headers/controller.h"
-#include "utils/headers/views.h"
+#include "views/headers/views.h"
 
 // Imprime o menu de opções no terminal
 // Pré-condição: nenhuma

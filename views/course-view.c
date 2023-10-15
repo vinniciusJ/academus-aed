@@ -6,7 +6,7 @@
 #include "headers/course-view.h"
 #include "../models/course.h"
 #include "../utils/headers/utils.h"
-#include "../utils/headers/views.h"
+#include "headers/views.h"
 
 // Imprime o menu de opções da seção de cursos
 // Pré-condição: nenhuma
@@ -32,15 +32,17 @@ Course * input_course(){
     do {
         printf("Digite o código do curso: ");
         scanf("%d%*c", &course->code);
-    } while(!is_valid_code(course->code));
+    } while(!is_valid_natural(course->code));
 
-    printf("Digite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
-    scanf("%[^\n]%*c", course->name);
+    do {
+        printf("\nDigite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
+        scanf("%[^\n]%*c", course->name);
+    } while (!is_valid_string(course->name, MAX_NAME_LENGTH));
 
     do {
         printf("\n[E] Exatas | [B] Biológicas | [H] Humanas\n");
         printf("Digite a área do curso: ");
-        scanf("%c%c", &course->area);
+        scanf("%c%*c", &course->area);
     } while(!is_valid_area(course->area));
 
     system("clear");
@@ -82,15 +84,4 @@ int is_valid_area(char area) {
         show_error_message("Área inválida! Por favor digite novamente");
         return 0;
     }
-}
-
-// Diz se o código é válido
-// Pré-condição: caracter
-// Pós-condição: nenhuma
-int is_valid_code(int code) {
-    if(code < 0) {
-        show_error_message("Código inválido! Por favor digite novamente");
-        return 0;
-    }
-    return 1;
 }
