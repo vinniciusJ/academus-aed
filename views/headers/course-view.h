@@ -32,4 +32,14 @@ void show_course_table_header();
 // Pós-condição: nenhuma
 void show_course_list_heading();
 
+// Diz se o caracter é uma área válida
+// Pré-condição: caracter
+// Pós-condição: nenhuma
+int is_valid_area(char area);
+
+// Diz se o código é válido
+// Pré-condição: caracter
+// Pós-condição: nenhuma
+int is_valid_code(int code);
+
 #endif //ACADEMUS_COURSE_VIEW_H

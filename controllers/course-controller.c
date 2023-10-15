@@ -47,16 +47,21 @@ void create_course() {
     FILE * file = open_list_file("course.bin");
     Course * course = input_course();
 
-    insert_course(*course, file);
+    Status * status = insert_course(*course, file);
 
-    show_sucess_message("Curso cadastrado com sucesso!");
-    show_course_table_header();
-    show_course(*course);
-
-    free_space(course);
-    fclose(file);
+    if(status->code == 1) {
+        show_sucess_message(status->message);
+        show_course_table_header();
+        show_course(*course);
+    } else {
+        show_error_message(status->message);
+    }
 
     wait_to_continue();
+
+    free_space(course);
+    free_space(status);
+    fclose(file);
 }
 
 // Lida com a visualização de todos os cursos

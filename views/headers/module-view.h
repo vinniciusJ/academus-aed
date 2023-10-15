@@ -37,6 +37,4 @@ void show_module(Module module, Subject subject, Professor professor);
 
 void show_emtpy_table_row();
 
-
-
 #endif //ACADEMUS_MODULE_VIEW_H

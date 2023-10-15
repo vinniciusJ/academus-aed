@@ -32,6 +32,15 @@ void show_invalid_option_message(){
 // Pós-condição: mensagem de sucesso impressa no terminal em verde
 void show_sucess_message(char * message) {
     printf("\n\033[1;32m  %s \033[1;0m\n\n", message);
+    scanf("%c");
+}
+
+// Imprime uma mensagem de erro recebida por parâmetro
+// Pré-condição: nenhuma
+// Pós-condição: mensagem de erro impressa no terminal em vermelho
+void show_error_message(char * message) {
+    printf("\n\033[31m %s \033[1;0m\n\n", message);
+    scanf("%c");
 }
 
 char * get_knowledge_area(char code){

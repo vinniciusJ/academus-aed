@@ -32,5 +32,9 @@ int input_number(char * label);
 
 int confirm_action(char * label);
 
+// Imprime uma mensagem de erro recebida por parâmetro
+// Pré-condição: nenhuma
+// Pós-condição: mensagem de erro impressa no terminal em vermelho
+void show_error_message(char * message);
 
 #endif //ACADEMUS_VIEWS_H

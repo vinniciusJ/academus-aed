@@ -29,17 +29,19 @@ Course * input_course(){
 
     Course * course = (Course *) alloc(sizeof(Course));
 
-    printf("Digite o código do curso: ");
-    scanf("%d%*c", &course->code);
-
+    do {
+        printf("Digite o código do curso: ");
+        scanf("%d%*c", &course->code);
+    } while(!is_valid_code(course->code));
 
     printf("Digite o nome do curso (até %d caracteres): ", MAX_NAME_LENGTH);
     scanf("%[^\n]%*c", course->name);
 
-    printf("\n[E] Exatas | [B] Biológicas | [H] Humanas\n");
-    printf("Digite a área do curso: ");
-    scanf("%c", &course->area);
-    scanf("%c");
+    do {
+        printf("\n[E] Exatas | [B] Biológicas | [H] Humanas\n");
+        printf("Digite a área do curso: ");
+        scanf("%c%c", &course->area);
+    } while(!is_valid_area(course->area));
 
     system("clear");
 
@@ -69,4 +71,26 @@ void show_course_table_header() {
 void show_course_list_heading() {
     printf("------------------------SISTEMA ACADEMUS-----------------------------------\n");
     printf("-----------------------Listagem de cursos----------------------------------\n\n");
+}
+
+// Diz se o caracter é uma área válida
+// Pré-condição: caracter
+// Pós-condição: nenhuma
+int is_valid_area(char area) {
+    if(area == 'E' || area == 'H' || area == 'B') return 1;
+    else {
+        show_error_message("Área inválida! Por favor digite novamente");
+        return 0;
+    }
+}
+
+// Diz se o código é válido
+// Pré-condição: caracter
+// Pós-condição: nenhuma
+int is_valid_code(int code) {
+    if(code < 0) {
+        show_error_message("Código inválido! Por favor digite novamente");
+        return 0;
+    }
+    return 1;
 }

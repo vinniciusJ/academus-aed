@@ -27,6 +27,8 @@ void start_module_router(){
     show_module_menu();
     option = input_option();
 
+    system("clear");
+
     switch (option) {
         case 0:
             start_app_router();
@@ -92,7 +94,7 @@ void show_modules(){
     int course_position = course_header->head_position, module_position = module_header->head_position;
 
     if(is_list_empty(course_header)){
-        show_alert("Nenhum curso e módulo cadastrados\n");
+        show_alert("Nenhum curso e módulo cadastrados");
         return;
     }
 

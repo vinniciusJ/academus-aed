@@ -46,4 +46,5 @@ add_executable(academus main.c
         controllers/controller.c
         controllers/headers/controller.h
         services/headers/service.h
-        services/service.c)
+        services/service.c
+        models/status.h)

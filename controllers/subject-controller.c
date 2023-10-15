@@ -23,6 +23,8 @@ void start_subject_router(){
     show_subject_menu();
     option = input_option();
 
+    system("clear");
+
     switch (option) {
         case 0:
             start_app_router();
