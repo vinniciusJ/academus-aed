@@ -5,6 +5,7 @@
 
 #include "../utils/headers/utils.h"
 #include "./headers/module-view.h"
+#include "headers/views.h"
 
 // Imprime o menu o cabeçalho do menu da seção de módulos
 // Pré-condição: nenhuma
@@ -35,14 +36,20 @@ Module * input_module(){
 
     Module * module = (Module *) alloc(sizeof(Module));
 
-    printf("Digite o ano letivo: ");
-    scanf("%d%*c", &module->academic_year);
+    do {
+        printf("Digite o ano letivo: ");
+        scanf("%d%*c", &module->academic_year);
+    } while(!is_valid_natural(module->academic_year));
 
-    printf("Digite o código da disciplina: ");
-    scanf("%d%*c", &module->subject_code);
+    do {
+        printf("Digite o código da disciplina: ");
+        scanf("%d%*c", &module->subject_code);
+    } while(!is_valid_natural(module->subject_code));
 
-    printf("Digite o código do professor: ");
-    scanf("%d%*c", &module->professor_code);
+    do {
+        printf("Digite o código do professor: ");
+        scanf("%d%*c", &module->professor_code);
+    } while(!is_valid_natural(module->professor_code));
 
     system("clear");
 
@@ -50,7 +57,7 @@ Module * input_module(){
 }
 
 void show_module_course(char * course_name){
-    printf("+----------------------------------------------------------------------------------------------------------------------------+\n");
+    printf("\n+----------------------------------------------------------------------------------------------------------------------------+\n");
     printf("| Curso: %-115s |\n", course_name);
     printf("+--------------------------------------------------------------------------------------------------------------------+-------+\n");
 }

@@ -101,7 +101,7 @@ int confirm_action(char * label){
 // Pós-condição: inteiro validado
 int is_valid_natural(int code) {
     if(code < 0) {
-        show_error_message("Código inválido! Por favor, digite novamente.");
+        show_error_message("Valor inválido! Por favor, digite novamente.");
         return 0;
     }
     return 1;

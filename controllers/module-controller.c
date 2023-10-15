@@ -59,16 +59,20 @@ void create_module(){
     FILE * subject_file = open_list_file("subject.bin");
     Module * module = input_module();
 
-    insert_module(*module, file);
+    Status * status = insert_module(*module, file);
 
-    show_sucess_message("Módulo cadastrado com sucesso!");
-
-    Professor * professor = get_professor_by_code(module->professor_code, professor_file);
-    Subject * subject = get_subject_by_code(module->subject_code, subject_file);
-    show_module_table_header();
-    show_module(*module, *subject, *professor);
+    if(status->code == 1) {
+        show_sucess_message(status->message);
+        Professor * professor = get_professor_by_code(module->professor_code, professor_file);
+        Subject * subject = get_subject_by_code(module->subject_code, subject_file);
+        show_module_table_header();
+        show_module(*module, *subject, *professor);
+    } else {
+        show_error_message(status->message);
+    }
 
     free_space(module);
+    free_space(status);
     fclose(file);
     fclose(professor_file);
     fclose(subject_file);

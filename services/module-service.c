@@ -1,12 +1,15 @@
 //
 // Created by vinniciusj on 15/09/23.
 //
+#include <string.h>
 #include "headers/module-service.h"
 #include "headers/subject-service.h"
 #include "../utils/headers/utils.h"
 #include "../utils/headers/list.h"
 
 #include "../models/subject.h"
+#include "../utils/headers/file.h"
+#include "headers/professor-service.h"
 
 typedef struct {
     int current;
@@ -17,26 +20,33 @@ typedef struct {
 
 // Pré-condição: um novo módulo e um arquivo aberto para escrita
 // Pós-condição: módulo salvo no arquivo lista
-void insert_module(Module module, FILE * file){
+Status * insert_module(Module module, FILE * file){
     Header * header = read_header(file);
     ModuleNode node = { module, header->head_position };
 
-    if(header->free_position == -1){
-        set_node(&node, sizeof(ModuleNode), header->top_position, file); // Escrevendo nó no arquivo lista
-        header->head_position = header->top_position;
-        header->top_position++;
+    Status * status = validate_module(module);
+
+    if(status->code == 1) {
+        if (header->free_position == -1) {
+            set_node(&node, sizeof(ModuleNode), header->top_position, file); // Escrevendo nó no arquivo lista
+            header->head_position = header->top_position;
+            header->top_position++;
+        } else {
+            ModuleNode *aux = read_node(header->free_position, sizeof(ModuleNode), file);
+
+            set_node(&node, sizeof(ModuleNode), header->free_position, file);
+            header->head_position = header->free_position;
+            header->head_position = aux->next;
+
+            aux = free_space(aux);
+        }
+
+        set_header(header, file);
     }
-    else{
-        ModuleNode * aux = read_node(header->free_position, sizeof(ModuleNode), file);
 
-        set_node(&node, sizeof(ModuleNode), header->free_position, file);
-        header->head_position = header->free_position;
-        header->head_position = aux->next;
+    free_space(header);
 
-        aux = free_space(aux);
-    }
-
-    set_header(header, file);
+    return status;
 }
 
 Position get_module_position(Module module, Header * header, FILE * file){
@@ -147,4 +157,42 @@ Module * get_module_by(int academic_year, int subject_code, FILE * modules_file)
     }
 
     return NULL;
+}
+
+// Valida o módulo e retorna um status da inserção de acordo com o resultado
+// Pré-condição: um novo módulo
+// Pós-condição: status para a inserção (código 1 para sucesso e 0 para erro)
+Status * validate_module(Module module) {
+    FILE * subject_file = open_list_file("subject.bin");
+    FILE * professor_file = open_list_file("professor.bin");
+    Status * status = (Status *) alloc(sizeof(Status));
+    status->code = 0;
+
+    char message[1000];
+
+    int subject_exists = !!get_subject_by_code(module.subject_code, subject_file);
+    int professor_exists = !!get_professor_by_code(module.professor_code, professor_file);
+
+    if(!subject_exists && !professor_exists) {
+        sprintf(message, "Não existe uma disciplina cadastrada com o código %d e não existe um professor(a) cadastrado(a) com o código %d! Portanto, o módulo não foi cadastrado.", module.subject_code, module.professor_code);
+    }
+
+    else if(!subject_exists) {
+        sprintf(message, "Não existe uma disciplina cadastrada com o código %d! Portanto, o módulo não foi cadastrado.", module.subject_code);
+    }
+
+    else if(!professor_exists) {
+        sprintf(message, "Não existe um professor(a) cadastrado(a) com o código %d! Portanto, o módulo não foi cadastrado.", module.professor_code);
+    }
+
+    else {
+        status->code = 1;
+        sprintf(message, "Módulo cadastrado com sucesso!");
+    }
+
+    strcpy(status->message, message);
+
+    fclose(professor_file);
+    fclose(subject_file);
+    return status;
 }
