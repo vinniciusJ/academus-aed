@@ -46,13 +46,17 @@ void create_professor() {
     FILE * file = open_list_file("professor.bin");
     Professor * professor = input_professor();
 
-    insert_professor(*professor, file);
+    Status * status = insert_professor(*professor, file);
 
-    show_sucess_message("Professor(a) cadastrado com sucesso!");
+    if(status->code == 1) {
+        show_sucess_message(status->message);
+        show_professor_table_header();
+        show_professor(*professor);
+    } else {
+        show_error_message(status->message);
+    }
 
-    show_professor_table_header();
-    show_professor(*professor);
-
+    free_space(status);
     free_space(professor);
     fclose(file);
 

@@ -5,6 +5,7 @@
 #include "headers/professor-view.h"
 #include "../models/professor.h"
 #include "../utils/headers/utils.h"
+#include "headers/views.h"
 
 // Imprime o menu de opções da seção de professores
 // Pré-condição: nenhuma
@@ -27,8 +28,10 @@ Professor * input_professor(){
 
     Professor * professor = (Professor *) alloc(sizeof(Professor));
 
-    printf("Digite o código do professor(a): ");
-    scanf("%d%*c", &professor->code);
+    do {
+        printf("Digite o código do professor(a): ");
+        scanf("%d%*c", &professor->code);
+    } while(!is_valid_natural(professor->code));
 
     printf("Digite o nome do professor(a) (até %d caracteres): ", NAME_LENGTH);
     scanf("%[^\n]%*c", professor->name);

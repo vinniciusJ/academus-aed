@@ -60,6 +60,7 @@ void create_subject() {
         show_error_message(status->message);
     }
 
+    free_space(status);
     free_space(subject);
     fclose(file);
 
