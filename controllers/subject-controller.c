@@ -11,6 +11,7 @@
 #include "../utils/headers/file.h"
 #include "../models/subject.h"
 #include "../services/headers/subject-service.h"
+#include "../services/headers/course-service.h"
 #include "../models/header.h"
 #include "../utils/headers/list.h"
 
@@ -47,22 +48,29 @@ void start_subject_router(){
 // Pré-condição: nenhuma
 // Pós-condição: disciplina criada e inserido no arquivo
 void create_subject() {
-    FILE * file = open_list_file("subject.bin");
+    FILE * subject_file = open_list_file("subject.bin");
+    FILE * course_file = open_list_file("course.bin");
+
     Subject * subject = input_subject();
 
-    Status * status = insert_subject(*subject, file);
+    Status * status = insert_subject(*subject, subject_file);
+    Course * course = NULL;
 
     if(status->code == 1) {
+        course = get_course_by_code(subject->course_code, course_file);
+
         show_sucess_message(status->message);
         show_subject_table_header();
-        show_subject(*subject);
+        show_subject(*subject, *course);
     } else {
         show_error_message(status->message);
     }
 
     free_space(status);
     free_space(subject);
-    fclose(file);
+
+    fclose(course_file);
+    fclose(subject_file);
 
     wait_to_continue();
 }
@@ -71,11 +79,15 @@ void create_subject() {
 // Pré-condição: nenhuma
 // Pós-condição: mostra todos as matérias cadastradas no arquivo
 void show_subjects() {
-    FILE * file = open_list_file("subject.bin");
-    Header * header = read_header(file);
+    FILE * subject_file = open_list_file("subject.bin");
+    FILE * course_file = open_list_file("course.bin");
+
+    Header * header = read_header(subject_file);
 
     int position = header->head_position;
+
     SubjectNode * subject_node = NULL;
+    Course * course = NULL;
 
     if(is_list_empty(header)){
         show_alert("Não há nenhuma disciplina cadastrada!");
@@ -85,12 +97,15 @@ void show_subjects() {
     show_subject_table_header();
 
     do{
-        subject_node = (SubjectNode *) read_node(position, sizeof(SubjectNode), file);
+        subject_node = (SubjectNode *) read_node(position, sizeof(SubjectNode), subject_file);
+        course = get_course_by_code(subject_node->value.course_code, course_file);
         position = subject_node->next;
 
-        show_subject(subject_node->value);
+        show_subject(subject_node->value, *course);
     } while (position != -1);
 
-    fclose(file);
+    fclose(course_file);
+    fclose(subject_file);
+
     wait_to_continue();
 }

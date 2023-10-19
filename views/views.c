@@ -117,3 +117,16 @@ int is_valid_string(char * str, int max) {
     }
     return 1;
 }
+
+char * input_string(char * label){
+    char * aux = NULL;
+
+    printf("%s: ", label);
+    scanf("%[^\n]%*c", aux);
+
+    char * value = (char *) malloc(strlen(aux));
+
+    strcpy(value, aux);
+
+    return value;
+}

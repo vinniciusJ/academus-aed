@@ -47,4 +47,6 @@ int is_valid_natural(int code);
 // Pós-condição: string validada
 int is_valid_string(char * str, int max);
 
+char * input_string(char * label);
+
 #endif //ACADEMUS_VIEWS_H
